@@ -1,0 +1,25 @@
+{
+  "name": "codegen-redux",
+  "version": "1.0.0",
+  "description": "unicareer cli for generate template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "ts-node --nolazy --inspect-brk=9229 src/generator/index.js"
+  },
+  "bin": {
+    "unicareer": "bin/unicareer"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.119",
+    "chalk": "^2.4.1",
+    "commander": "^2.18.0",
+    "download-git-repo": "^1.1.0",
+    "inquirer": "^6.2.0",
+    "js-yaml": "^3.12.1",
+    "lodash": "^4.17.11",
+    "ora": "^3.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "shelljs": "^0.8.3"
+  }
+}

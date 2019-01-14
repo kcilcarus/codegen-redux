@@ -1,0 +1,18 @@
+import { handleActions } from 'redux-actions';
+import { actionTypes } from 'actions/${ dir }/${fileName}';
+
+const initState = {};
+
+const ${ fileName }Reducer = handleActions(
+  {
+  <% _.forEach(actions, function(action) { %>
+    [actionTypes.GET_CHAPTERS_SUCCESS]: (state, { payload }) => {
+      return { ...state};
+    },
+  <% }); %>
+  },
+  initState
+);
+
+export { ${ fileName }Reducer };
+
