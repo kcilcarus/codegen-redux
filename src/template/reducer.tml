@@ -6,7 +6,7 @@ const initState = {};
 const ${ fileName }Reducer = handleActions(
   {
   <% _.forEach(actions, function(action) { %>
-    [actionTypes.GET_CHAPTERS_SUCCESS]: (state, { payload }) => {
+    [actionTypes.${ actions.underscoreName }]: (state, { payload }) => {
       return { ...state};
     },
   <% }); %>
