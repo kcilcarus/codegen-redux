@@ -2,7 +2,7 @@ import { createActions } from 'redux-actions';
 
 const actionTypes = {
   <% _.forEach(actions, function(action) { %>
-    <%- action.underscoreName %>: '<%- action.underscoreName %>',
+    <%- action.underscoreName %>: "<%- action.underscoreName %>",
   <% }); %>
 };
 

@@ -48,6 +48,16 @@ const easterEgg = (): void => {
   }
 };
 
+const replaceLineBreak = (str: string) => {
+  const reg = new RegExp(',\n  \n', 'g');
+  const res = str
+    .replace(reg, ',\n')
+    .replace(new RegExp('{\n', 'g'), '{')
+    .replace(new RegExp('\n\n', 'g'), '\n')
+    .replace(new RegExp('    ', 'g'), '  ');
+  return res;
+};
+
 const underscoreName = (str: string) =>
   str.replace(/([A-Z])/g, '_$1').toUpperCase();
 
@@ -128,7 +138,7 @@ class Generator {
     this.writeFile(
       storePath + '/actions/',
       this.doc.fileName,
-      actionCompiled({ actions })
+      replaceLineBreak(actionCompiled({ actions }))
     );
 
     this.writeFile(

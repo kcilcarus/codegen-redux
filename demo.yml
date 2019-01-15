@@ -1,12 +1,5 @@
-#### Usage
-
-npm i -g @uni/codegen-reudx
-
-codegen-reudx g ./demo.yml
-
-```yml
 dir: course/test
-fileName: chapter
+fileName: aaaa
 actions:
   - name: getChaptersSuccess
     reducer: true
@@ -14,4 +7,3 @@ actions:
     reducer: true
   - name: changeCurrentChapter
   - name: changeVideoPlay
-```
