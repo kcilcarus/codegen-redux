@@ -6,8 +6,7 @@ import shelljs from 'shelljs';
 import chalk from 'chalk';
 import ora from 'ora';
 import inquirer from 'inquirer';
-
-const qrcode: any = require('qrcode-terminal');
+import qrcode from 'qrcode-terminal';
 
 const EGG_LIST = [
   'ruofeixiong',
@@ -19,32 +18,32 @@ const EGG_LIST = [
   'wanganyi'
 ];
 
-const easterEgg = (): void => {
+const easterEgg = async () => {
   const res = shelljs.exec('whoami', { silent: true });
   const name = typeof res.stdout === 'string' ? res.stdout : '';
   if (EGG_LIST.includes(name.substring(0, name.length - 1).toLowerCase())) {
-    inquirer
-      .prompt([
-        {
-          type: 'confirm',
-          name: 'egg',
-          message: 'Whether to open the easter-egg'
-        }
-      ])
-      .then(
-        (res: any): void => {
-          if (res.egg) {
-            const spinner = ora();
+    const res: { egg: boolean } = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'egg',
+        message: 'Whether to open the easter-egg'
+      }
+    ]);
 
-            qrcode.generate('wxp://f2f1dCO-KRa-5EXMMwBWGaKmT6ZwGdDh_0R7');
+    if (res.egg) {
+      const spinner = ora();
 
-            spinner.text = chalk.green(
-              '   😶· please pay ￥5 to author\n    open qrcode with wechat\n'
-            );
-            spinner.start();
-          }
-        }
+      qrcode.generate(
+        'wxp://f2f1dCO-KRa-5EXMMwBWGaKmT6ZwGdDh_0R7',
+        {},
+        () => {}
       );
+
+      spinner.text = chalk.green(
+        '   😶· please pay ￥5 to author\n    open qrcode with wechat\n'
+      );
+      spinner.start();
+    }
   }
 };
 

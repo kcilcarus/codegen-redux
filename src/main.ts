@@ -1,7 +1,5 @@
 import program from 'commander';
 
-const rootPath = process.cwd();
-
 import { version } from '../package.json';
 import reduxGenerator from './redux-generator';
 
@@ -16,3 +14,13 @@ program
   });
 
 program.parse(process.argv);
+
+const NO_COMMAND_SPECIFIED = process.argv.length === 2;
+
+if (NO_COMMAND_SPECIFIED) {
+  program.help();
+}
+
+if (program.args.length === 1) {
+  reduxGenerator(program.args[0]);
+}
