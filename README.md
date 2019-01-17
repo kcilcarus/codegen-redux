@@ -1,6 +1,12 @@
 #### Usage
 
-npm i -g @uni/codegen-reudx
+npm login
+
+name: downloader
+pw: UniCareer@2018
+email: downloader@unicareer.com
+
+npm i -g @uni/codegen-redux --registry=https://registry.cnpm.unicareer.com/
 
 codegen-reudx g ./demo.yml
 

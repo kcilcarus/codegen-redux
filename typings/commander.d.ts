@@ -94,7 +94,7 @@ export function alias(alias: any, ...args: any[]): any;
 
 export function allowUnknownOption(arg: any, ...args: any[]): any;
 
-export function command(name: any, desc?: any, opts?: any): any;
+export function command(name: any, desc: any, opts: any): any;
 
 export function commandHelp(): any;
 
@@ -112,7 +112,7 @@ export function executeSubCommand(argv: any, args: any, unknown: any): void;
 
 export function getMaxListeners(): any;
 
-export function help(cb?: any): void;
+export function help(cb: any): void;
 
 export function helpInformation(): any;
 
