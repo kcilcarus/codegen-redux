@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { actionTypes, <% _.forEach(actions, function(action) { %>${action.name}, <% }); %> } from 'actions/${dir}/${fileName}';
 
-function* ${fileName}Saga(action) {
+function* ${fileName.replace(/\-(\w)/g, (all, letter) => letter.toUpperCase())}Saga(action) {
   try {
     const { params, settings } = (action && action.payload) || {};
 
@@ -10,6 +10,6 @@ function* ${fileName}Saga(action) {
   }
 }
 
-export default function* watch${fileName.charAt(0).toUpperCase() + fileName.slice(1)}Saga() {
-  yield takeLatest(null, ${fileName}Saga);
+export default function* watch${fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(/\-(\w)/g, (all, letter) => letter.toUpperCase())}Saga() {
+  yield takeLatest(null, ${fileName.replace(/\-(\w)/g, (all, letter) => letter.toUpperCase())}Saga);
 }

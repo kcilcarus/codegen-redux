@@ -3,7 +3,7 @@ import { actionTypes } from 'actions/${ dir }/${fileName}';
 
 const initState = {};
 
-const ${ fileName }Reducer = handleActions(
+const ${ fileName.replace(/\-(\w)/g, (all, letter) => letter.toUpperCase()) }Reducer = handleActions(
   {
   <% _.forEach(actions, function(action) { %>
     [actionTypes.${ action.underscoreName }]: (state, { payload }) => {
@@ -14,5 +14,5 @@ const ${ fileName }Reducer = handleActions(
   initState
 );
 
-export { ${ fileName }Reducer };
+export { ${ fileName.replace(/\-(\w)/g, (all, letter) => letter.toUpperCase()) }Reducer };
 

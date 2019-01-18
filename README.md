@@ -8,7 +8,7 @@ email: downloader@unicareer.com
 
 npm i -g @uni/codegen-redux --registry=https://registry.cnpm.unicareer.com/
 
-codegen-reudx g ./demo.yml
+codegen-redux g ./demo.yml
 
 ```yml
 dir: course/test
