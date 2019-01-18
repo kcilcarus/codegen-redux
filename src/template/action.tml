@@ -6,19 +6,10 @@ const actionTypes = {
   <% }); %>
 };
 
-const {
-  <% _.forEach(actions, function(action) { %>
-    <%- action.name %>,
-  <% }); %>
-} = createActions({
-  <% _.forEach(actions, function(action) { %>
-    [actionTypes.<%- action.underscoreName %>]: payload => payload,
-  <% }); %>
+const {<% _.forEach(actions, function(action) { %><%- action.name %>,<% }); %>} = createActions({
+      <% _.forEach(actions, function(action) { %>
+        [actionTypes.<%- action.underscoreName %>]: payload => payload,
+      <% }); %>
 });
 
-export {
-  actionTypes,
-<% _.forEach(actions, function(action) { %>
-  <%- action.name %>,
-<% }); %>
-};
+export {actionTypes,<% _.forEach(actions, function(action) { %><%- action.name %>,<% }); %>};

@@ -11,13 +11,20 @@ npm i -g @uni/codegen-redux --registry=https://registry.cnpm.unicareer.com/
 codegen-redux g ./demo.yml
 
 ```yml
-dir: course/test
-fileName: chapter
-actions:
-  - name: getChaptersSuccess
-    reducer: true
-  - name: getChapterDetailSuccess
-    reducer: true
-  - name: changeCurrentChapter
-  - name: changeVideoPlay
+
+-
+    dir: course/test1
+    fileName: order-abc
+    actions:
+      - name: getChaptersSuccess
+        reducer: true
+      - name: changeVideoPlay
+-
+    dir: course/test2
+    fileName: assitant-cde
+    actions:
+      - name: getChaptersSuccess
+        reducer: true
+      - name: changeCurrentChapter
+      
 ```

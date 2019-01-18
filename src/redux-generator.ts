@@ -74,15 +74,17 @@ const checkPathExist = (path: string) => {
 
 const STORE_PATH = 'src/store';
 
-type Options = {
-  source: string;
-};
-
 type Actions = {
   name: string;
   reducer?: boolean;
   saga?: boolean;
 };
+
+type FileDocs = {
+  dir: string;
+  fileName: string;
+  actions: any[]
+}
 
 class Generator {
   actionTemplate?: string;
@@ -90,12 +92,8 @@ class Generator {
   sagaTemplate?: string;
   doc?: any;
 
-  public init(options: Options) {
-    const { source } = options;
-    this.doc = yaml.safeLoad(
-      fs.readFileSync(path.resolve(source), { encoding: 'utf8' })
-    );
-
+  public init(doc: FileDocs) {
+    this.doc = doc;
     this.actionTemplate = this.readTemplate('action.tml');
     this.reducerTemplate = this.readTemplate('reducer.tml');
     this.sagaTemplate = this.readTemplate('saga.tml');
@@ -117,10 +115,10 @@ class Generator {
     });
   }
 
-  public run() {
+  public run(doc: FileDocs) {
     easterEgg();
 
-    const actions = this.doc.actions.map((o: Actions) => {
+    const actions = doc.actions.map((o: Actions) => {
       return {
         ...o,
         underscoreName: underscoreName(o.name)
@@ -136,28 +134,32 @@ class Generator {
 
     this.writeFile(
       storePath + '/actions/',
-      this.doc.fileName,
+      doc.fileName,
       replaceLineBreak(actionCompiled({ actions }))
     );
 
     this.writeFile(
       storePath + '/reducers/',
-      this.doc.fileName,
-      reducerCompiled({ ...this.doc, actions: reducers })
+      doc.fileName,
+      reducerCompiled({ ...doc, actions: reducers })
     );
 
     this.writeFile(
       storePath + '/sagas/',
-      this.doc.fileName,
-      sagaCompiled({ ...this.doc })
+      doc.fileName,
+      sagaCompiled({ ...doc })
     );
   }
 }
 
 export default function(source: string) {
   const rg = new Generator();
-  rg.init({
-    source
+  const docs = yaml.safeLoad(
+    fs.readFileSync(path.resolve(source), { encoding: 'utf8' })
+  );
+  docs.map((doc: FileDocs) => {   
+    rg.init(doc);
+    rg.run(doc);
   });
-  rg.run();
+
 }

@@ -13,7 +13,7 @@ export class Command {
 
   arguments(desc: any): any;
 
-  command(name: any, desc: any, opts: any): any;
+  command(name: any, desc?: any, opts?: any): any;
 
   commandHelp(): any;
 
@@ -80,6 +80,8 @@ export class Option {
   name(): any;
 }
 
+export const args: any[];
+
 export const commands: any[];
 
 export const options: any[];
@@ -94,7 +96,7 @@ export function alias(alias: any, ...args: any[]): any;
 
 export function allowUnknownOption(arg: any, ...args: any[]): any;
 
-export function command(name: any, desc: any, opts: any): any;
+export function command(name: any, desc?: any, opts?: any): any;
 
 export function commandHelp(): any;
 
@@ -112,7 +114,7 @@ export function executeSubCommand(argv: any, args: any, unknown: any): void;
 
 export function getMaxListeners(): any;
 
-export function help(cb: any): void;
+export function help(cb?: any): void;
 
 export function helpInformation(): any;
 
@@ -187,318 +189,6 @@ export function variadicArgNotLast(name: any): void;
 
 export function version(str: any, flags: any, ...args: any[]): any;
 
-export namespace Command {
-  namespace prototype {
-    function action(fn: any): any;
-
-    function addImplicitHelpCommand(): void;
-
-    function addListener(type: any, listener: any): any;
-
-    function alias(alias: any, ...args: any[]): any;
-
-    function allowUnknownOption(arg: any, ...args: any[]): any;
-
-    function command(name: any, desc: any, opts: any): any;
-
-    function commandHelp(): any;
-
-    function description(str: any, argsDescription: any, ...args: any[]): any;
-
-    function emit(type: any, args: any): any;
-
-    function eventNames(): any;
-
-    function executeSubCommand(argv: any, args: any, unknown: any): void;
-
-    function getMaxListeners(): any;
-
-    function help(cb: any): void;
-
-    function helpInformation(): any;
-
-    function largestArgLength(): any;
-
-    function largestCommandLength(): any;
-
-    function largestOptionLength(): any;
-
-    function listenerCount(type: any): any;
-
-    function listeners(type: any): any;
-
-    function missingArgument(name: any): void;
-
-    function name(str: any, ...args: any[]): any;
-
-    function normalize(args: any): any;
-
-    function off(type: any, listener: any): any;
-
-    function on(type: any, listener: any): any;
-
-    function once(type: any, listener: any): any;
-
-    function option(
-      flags: any,
-      description: any,
-      fn: any,
-      defaultValue: any
-    ): any;
-
-    function optionFor(arg: any): any;
-
-    function optionHelp(): any;
-
-    function optionMissingArgument(option: any, flag: any): void;
-
-    function opts(): any;
-
-    function outputHelp(cb: any): any;
-
-    function padWidth(): any;
-
-    function parse(argv: any): any;
-
-    function parseArgs(args: any, unknown: any): any;
-
-    function parseExpectedArgs(args: any): any;
-
-    function parseOptions(argv: any): any;
-
-    function prepareCommands(): any;
-
-    function prependListener(type: any, listener: any): any;
-
-    function prependOnceListener(type: any, listener: any): any;
-
-    function rawListeners(type: any): any;
-
-    function removeAllListeners(type: any, ...args: any[]): any;
-
-    function removeListener(type: any, listener: any): any;
-
-    function setMaxListeners(n: any): any;
-
-    function unknownOption(flag: any): void;
-
-    function usage(str: any, ...args: any[]): any;
-
-    function variadicArgNotLast(name: any): void;
-
-    function version(str: any, flags: any, ...args: any[]): any;
-
-    namespace action {
-      const prototype: {};
-    }
-
-    namespace addImplicitHelpCommand {
-      const prototype: {};
-    }
-
-    namespace addListener {
-      const prototype: {};
-    }
-
-    namespace alias {
-      const prototype: {};
-    }
-
-    namespace allowUnknownOption {
-      const prototype: {};
-    }
-
-    namespace command {
-      const prototype: {};
-    }
-
-    namespace commandHelp {
-      const prototype: {};
-    }
-
-    namespace description {
-      const prototype: {};
-    }
-
-    namespace emit {
-      const prototype: {};
-    }
-
-    namespace eventNames {
-      const prototype: {};
-    }
-
-    namespace executeSubCommand {
-      const prototype: {};
-    }
-
-    namespace getMaxListeners {
-      const prototype: {};
-    }
-
-    namespace help {
-      const prototype: {};
-    }
-
-    namespace helpInformation {
-      const prototype: {};
-    }
-
-    namespace largestArgLength {
-      const prototype: {};
-    }
-
-    namespace largestCommandLength {
-      const prototype: {};
-    }
-
-    namespace largestOptionLength {
-      const prototype: {};
-    }
-
-    namespace listenerCount {
-      const prototype: {};
-    }
-
-    namespace listeners {
-      const prototype: {};
-    }
-
-    namespace missingArgument {
-      const prototype: {};
-    }
-
-    namespace name {
-      const prototype: {};
-    }
-
-    namespace normalize {
-      const prototype: {};
-    }
-
-    namespace off {
-      const prototype: {};
-    }
-
-    namespace on {
-      const prototype: {};
-    }
-
-    namespace once {
-      const prototype: {};
-    }
-
-    namespace option {
-      const prototype: {};
-    }
-
-    namespace optionFor {
-      const prototype: {};
-    }
-
-    namespace optionHelp {
-      const prototype: {};
-    }
-
-    namespace optionMissingArgument {
-      const prototype: {};
-    }
-
-    namespace opts {
-      const prototype: {};
-    }
-
-    namespace outputHelp {
-      const prototype: {};
-    }
-
-    namespace padWidth {
-      const prototype: {};
-    }
-
-    namespace parse {
-      const prototype: {};
-    }
-
-    namespace parseArgs {
-      const prototype: {};
-    }
-
-    namespace parseExpectedArgs {
-      const prototype: {};
-    }
-
-    namespace parseOptions {
-      const prototype: {};
-    }
-
-    namespace prepareCommands {
-      const prototype: {};
-    }
-
-    namespace prependListener {
-      const prototype: {};
-    }
-
-    namespace prependOnceListener {
-      const prototype: {};
-    }
-
-    namespace rawListeners {
-      const prototype: {};
-    }
-
-    namespace removeAllListeners {
-      const prototype: {};
-    }
-
-    namespace removeListener {
-      const prototype: {};
-    }
-
-    namespace setMaxListeners {
-      const prototype: {};
-    }
-
-    namespace unknownOption {
-      const prototype: {};
-    }
-
-    namespace usage {
-      const prototype: {};
-    }
-
-    namespace variadicArgNotLast {
-      const prototype: {};
-    }
-
-    namespace version {
-      const prototype: {};
-    }
-  }
-}
-
-export namespace Option {
-  namespace prototype {
-    function attributeName(): any;
-
-    function is(arg: any): any;
-
-    function name(): any;
-
-    namespace attributeName {
-      const prototype: {};
-    }
-
-    namespace is {
-      const prototype: {};
-    }
-
-    namespace name {
-      const prototype: {};
-    }
-  }
-}
 
 export namespace action {
   const prototype: {};
