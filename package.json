@@ -1,7 +1,7 @@
 {
-  "name": "@uni/codegen-redux",
+  "name": "codegen-redux",
   "version": "1.0.5",
-  "description": "unicareer cli for generate template",
+  "description": "cli for generate template",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

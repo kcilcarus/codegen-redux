@@ -8,15 +8,7 @@ import ora from 'ora';
 import inquirer from 'inquirer';
 import qrcode from 'qrcode-terminal';
 
-const EGG_LIST = [
-  'ruofeixiong',
-  'kongchenxu',
-  'chenhao',
-  'jiangting',
-  'unicareer',
-  'liuxiaozhong',
-  'wanganyi'
-];
+const EGG_LIST = ['chenhao'];
 
 const easterEgg = async () => {
   const res = shelljs.exec('whoami', { silent: true });
