@@ -1,20 +1,18 @@
--
-    dir: course/test1
-    fileName: aaaa
-    actions:
-      - name: getChaptersSuccess
-        reducer: true
-      - name: getChapterDetailSuccess
-        reducer: true
-      - name: changeCurrentChapter
-      - name: changeVideoPlay
--
-    dir: course/test2
-    fileName: bbbb
-    actions:
-      - name: getChaptersSuccess
-        reducer: true
-      - name: getChapterDetailSuccess
-        reducer: true
-      - name: changeCurrentChapter
-      - name: changeVideoPlay
+- dir: course/test1
+  fileName: aaaa
+  actions:
+    - name: getChaptersSuccess
+      reducer: true
+    - name: getChapterDetailSuccess
+      reducer: true
+    - name: changeCurrentChapter
+    - name: changeVideoPlay
+- dir: course/test2
+  fileName: bbbb
+  actions:
+    - name: getChaptersSuccess
+      reducer: true
+    - name: getChapterDetailSuccess
+      reducer: true
+    - name: changeCurrentChapter
+    - name: changeVideoPlay

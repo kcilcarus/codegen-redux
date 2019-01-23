@@ -74,29 +74,20 @@ const checkPathExist = (path: string) => {
 
 const STORE_PATH = 'src/store';
 
-type Actions = {
-  name: string;
-  reducer?: boolean;
-  saga?: boolean;
-};
-
-type FileDocs = {
-  dir: string;
-  fileName: string;
-  actions: any[]
-}
-
 class Generator {
   actionTemplate?: string;
   reducerTemplate?: string;
   sagaTemplate?: string;
   doc?: any;
 
-  public init(doc: FileDocs) {
-    this.doc = doc;
+  constructor() {
     this.actionTemplate = this.readTemplate('action.tml');
     this.reducerTemplate = this.readTemplate('reducer.tml');
     this.sagaTemplate = this.readTemplate('saga.tml');
+  }
+
+  public init(doc: FileDocs) {
+    this.doc = doc;
   }
 
   readTemplate(templateName: string) {
@@ -116,8 +107,6 @@ class Generator {
   }
 
   public run(doc: FileDocs) {
-    easterEgg();
-
     const actions = doc.actions.map((o: Actions) => {
       return {
         ...o,
@@ -153,13 +142,14 @@ class Generator {
 }
 
 export default function(source: string) {
+  easterEgg();
+
   const rg = new Generator();
   const docs = yaml.safeLoad(
     fs.readFileSync(path.resolve(source), { encoding: 'utf8' })
   );
-  docs.map((doc: FileDocs) => {   
+  docs.map((doc: FileDocs) => {
     rg.init(doc);
     rg.run(doc);
   });
-
 }
